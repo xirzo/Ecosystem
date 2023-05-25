@@ -21,7 +21,7 @@ namespace Game.UI
 
         private void UpdateStateText(State state)
         {
-            SetText(state.ToString());
+            SetText(state.Name);
         }
     }
 }

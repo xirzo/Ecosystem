@@ -1,4 +1,5 @@
 using Game.Entities;
+using Game.Gendering;
 using UnityEngine;
 
 namespace Game.UI
@@ -11,12 +12,17 @@ namespace Game.UI
         {
             base.Awake();
 
-            UpdateStateText();
+            _entity.OnGenderSet += gender => UpdateStateText(gender);
         }
 
-        private void UpdateStateText()
+        private void OnDestroy()
         {
-            SetText(_entity.Gender.ToString());
+            _entity.OnGenderSet -= gender => UpdateStateText(gender);
+        }
+
+        private void UpdateStateText(Gender gender)
+        {
+            SetText(gender.Name);
         }
     }
 }

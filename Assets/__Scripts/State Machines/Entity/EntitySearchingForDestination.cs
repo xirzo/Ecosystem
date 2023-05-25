@@ -1,15 +1,15 @@
-using System;
-using System.Collections.Generic;
 using Game.Movement;
-using UnityEngine;
 
-namespace Game.StateMachines
+namespace Game.StateMachines.Entity
 {
-    public class EntitySearchForDestination : EntityState
+    public class EntitySearchingForDestination : EntityState
     {
+        public override string Name => "Entity Searching For Destination";
+
+
         private EntityDestinationPicker _destinationPicker;
 
-        public EntitySearchForDestination(EntityStateMachine stateMachine, EntityDestinationPicker destinationPicker) : base(stateMachine)
+        public EntitySearchingForDestination(EntityStateMachine stateMachine, EntityDestinationPicker destinationPicker) : base(stateMachine)
         {
             _destinationPicker = destinationPicker;
         }

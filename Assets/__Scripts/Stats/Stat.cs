@@ -52,6 +52,14 @@ namespace Game.Stats
             OnStatChanged?.Invoke(_stat);
         }
 
+        public void ResetToZero()
+        {
+            _stat = 0;
+
+            OnStatDecreased?.Invoke(_stat);
+            OnStatChanged?.Invoke(_stat);
+        }
+
         private void OnValidate()
         {
             OnStatChanged?.Invoke(_stat);

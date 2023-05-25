@@ -212,7 +212,7 @@ MonoBehaviour:
   _prefab: {fileID: 1524932235795068980, guid: 05fc375fecdb14846942080562de306a, type: 3}
   _container: {fileID: 0}
   _spawnPoint: {fileID: 8072496885423868164}
-  _initialNumber: 1
+  _initialNumber: 2
 --- !u!114 &5429701682967434634
 MonoBehaviour:
   m_ObjectHideFlags: 0

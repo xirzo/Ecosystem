@@ -1,35 +1,35 @@
-using Game.Interaction;
 using Game.Movement;
+using Game.Stats;
 using UnityEngine;
 
 namespace Game.Animation
 {
     [RequireComponent(typeof(IMoveable))]
+    [RequireComponent(typeof(Health))]
     public class EntityAnimator : AnimatorController
     {
-        private IMoveable _movement;
-
         private const string IS_WALKING = "isWalking";
         private const string IS_STANDING = "isStanding";
-        private const string IS_DEAD = "isDead";
+        private const string DIED = "Died";
         private const string IS_RUNNING = "isRunning";
         private const string IS_ATTACKING = "isAttacking";
+
+        private IMoveable _movement;
+        private Health _health;
 
         protected override void Awake()
         {
             base.Awake();
 
             TryGetComponent(out _movement);
-        }
+            TryGetComponent(out _health);
 
-        private void Start()
-        {
-
+            _health.OnDied += OnDied;
         }
 
         private void OnDestroy()
         {
-
+            _health.OnDied -= OnDied;
         }
 
         private void Update()
@@ -38,9 +38,9 @@ namespace Game.Animation
             Animator.SetBool(IS_RUNNING, _movement.IsRunning);
         }
 
-        private void OnInteracted(IInteractor interactr)
+        private void OnDied()
         {
-            Animator.SetTrigger("Interacted");
+            Animator.SetTrigger(DIED);
         }
     }
 }

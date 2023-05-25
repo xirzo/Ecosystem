@@ -2,8 +2,11 @@ using System;
 using System.Collections.Generic;
 using Game.Coloring;
 using Game.Entities;
+using Game.Gendering;
 using Game.ObjectPooling;
 using UnityEngine;
+using UnityEngine.Analytics;
+using Gender = Game.Gendering.Gender;
 
 namespace Game.Spawning
 {
@@ -23,6 +26,7 @@ namespace Game.Spawning
         [SerializeField, Min(0)] private int _initialNumber = 1;
 
         private SpawnerColor _color;
+        private Gender _previousEntityGender;
 
         private Stack<Entity> _stack;
         private UnlimitedObjectPool<Entity> _pool;
@@ -41,6 +45,8 @@ namespace Game.Spawning
         {
             Entity spawned = _pool.Unpool();
 
+            SetEntityGender(spawned);
+
             if (spawned.TryGetComponent(out EntityColor color))
             {
                 color.SetColor(_color.Color);
@@ -49,6 +55,23 @@ namespace Game.Spawning
             _stack.Push(spawned);
 
             OnSpawned?.Invoke();
+        }
+
+        private void SetEntityGender(Entity spawned)
+        {
+            if (_previousEntityGender == null || _previousEntityGender is FemaleGender)
+            {
+                MaleGender gender = new MaleGender();
+                spawned.SetGender(gender);
+                _previousEntityGender = gender;
+            }
+
+            else
+            {
+                FemaleGender gender = new FemaleGender();
+                spawned.SetGender(gender);
+                _previousEntityGender = gender;
+            }
         }
 
         public void Despawn()

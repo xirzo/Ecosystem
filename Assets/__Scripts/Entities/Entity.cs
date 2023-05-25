@@ -1,29 +1,21 @@
+using System;
+using Game.Gendering;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Game.Entities
 {
     public abstract class Entity : MonoBehaviour
     {
+        public event Action<Gender> OnGenderSet;
+
         public Gender Gender => _gender;
 
         private Gender _gender;
 
-        private void Awake()
+        public void SetGender(Gender newGender)
         {
-            SetRandomGender();
+            _gender = newGender;
+            OnGenderSet?.Invoke(_gender);
         }
-
-        private void SetRandomGender()
-        {
-            int index = Random.Range(0, 2);
-            _gender = (Gender)index;
-        }
-    }
-
-    public enum Gender
-    {
-        Male = 0,
-        Female = 1
     }
 }

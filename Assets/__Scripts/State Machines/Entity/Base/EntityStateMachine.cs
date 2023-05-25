@@ -1,7 +1,7 @@
 using Game.Movement;
 using UnityEngine;
 
-namespace Game.StateMachines
+namespace Game.StateMachines.Entity
 {
     [RequireComponent(typeof(EntityMovement))]
     [RequireComponent(typeof(EntityDestinationPicker))]
@@ -17,8 +17,9 @@ namespace Game.StateMachines
 
             AddState(new EntityStart(this));
             AddState(new EntityIdle(this));
-            AddState(new EntitySearchForDestination(this, _destinationPicker));
+            AddState(new EntitySearchingForDestination(this, _destinationPicker));
             AddState(new EntityMoving(this, _movement, _destinationPicker));
+            AddState(new EntityDead(this));
         }
 
         private void Start()

@@ -1,9 +1,11 @@
 using UnityEngine;
 
-namespace Game.StateMachines
+namespace Game.StateMachines.Entity
 {
     public class EntityIdle : EntityState
     {
+        public override string Name => "Entity Idle";
+
         public EntityIdle(EntityStateMachine stateMachine) : base(stateMachine)
         {
 
@@ -13,7 +15,7 @@ namespace Game.StateMachines
         {
             base.Enter();
 
-            Machine.SetState<EntitySearchForDestination>();
+            Machine.SetState<EntitySearchingForDestination>();
         }
     }
 }

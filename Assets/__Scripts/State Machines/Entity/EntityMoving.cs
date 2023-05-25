@@ -1,13 +1,11 @@
-using System;
-using System.Collections.Generic;
 using Game.Movement;
-using UnityEngine;
-using UnityEngine.AI;
 
-namespace Game.StateMachines
+namespace Game.StateMachines.Entity
 {
     public class EntityMoving : EntityState
     {
+        public override string Name => "Entity Moving";
+
         private EntityMovement _movement;
         private EntityDestinationPicker _destinationPicker;
 

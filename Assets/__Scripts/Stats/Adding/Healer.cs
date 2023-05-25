@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
 
-namespace Game.Stats.Adding
+namespace Game.Stats
 {
     public class Healer : MonoBehaviour, IIncreaser
     {
-        public event Action<Health> OnHealed;
+        public event Action<Health> OnIncrease;
         public float Value => _health;
 
         [SerializeField, Min(0)] private float _health = 10f;
@@ -13,11 +13,11 @@ namespace Game.Stats.Adding
         private void Heal(Health target)
         {
             target.Increase(_health);
-            OnHealed?.Invoke(target);
+            OnIncrease?.Invoke(target);
         }
 
 
-        public void TryToHeal(Health target)
+        public void Increase(Health target)
         {
             if (target == null)
                 return;

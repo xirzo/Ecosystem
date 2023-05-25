@@ -1,10 +1,10 @@
 using System;
 
-namespace Game.Stats.Substraction
+namespace Game.Stats
 {
     public interface IDecreaser
     {
-        public event Action<Stat> OnDamaged;
+        public event Action<Stat> OnDecreased;
         public float DecreaseValue { get; }
         public void Decrease(Stat target);
     }

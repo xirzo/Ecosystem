@@ -1,11 +1,11 @@
 using System;
 
-namespace Game.Stats.Adding
+namespace Game.Stats
 {
     public interface IIncreaser
     {
-        public event Action<Health> OnHealed;
+        public event Action<Health> OnIncrease;
         public float Value { get; }
-        public void TryToHeal(Health target);
+        public void Increase(Health target);
     }
 }

@@ -4,6 +4,7 @@ namespace Game.StateMachines
 {
     public abstract class State
     {
+        public abstract string Name { get; }
         protected StateMachine Machine { get; private set; }
 
         public State(StateMachine stateMachine)
