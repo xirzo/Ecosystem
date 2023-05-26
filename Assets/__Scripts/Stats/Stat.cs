@@ -10,59 +10,59 @@ namespace Game.Stats
         public event Action<float> OnStatIncreased;
         public event Action<float> OnStatDecreased;
 
-        public float Value => _stat;
-        public float MaxValue => _maxStat;
+        public float StatValue => _statValue;
+        public float MaxStatValue => _maxStatValue;
 
-        [SerializeField, Range(0, 1000f)] private float _stat = 100;
-        [SerializeField, Range(0, 1000f)] private float _maxStat = 100;
+        [SerializeField, Range(0, 1000f)] private float _statValue = 100;
+        [SerializeField, Range(0, 1000f)] private float _maxStatValue = 100;
 
         public void Increase(float value)
         {
-            if (_stat + value >= _maxStat)
+            if (_statValue + value >= _maxStatValue)
             {
-                _stat = _maxStat;
+                _statValue = _maxStatValue;
 
-                OnStatIncreased?.Invoke(_stat);
-                OnStatChanged?.Invoke(_stat);
+                OnStatIncreased?.Invoke(_statValue);
+                OnStatChanged?.Invoke(_statValue);
 
                 return;
             }
 
-            _stat += value;
+            _statValue += value;
 
-            OnStatIncreased?.Invoke(_stat);
-            OnStatChanged?.Invoke(_stat);
+            OnStatIncreased?.Invoke(_statValue);
+            OnStatChanged?.Invoke(_statValue);
         }
 
         public void Decrease(float value)
         {
-            if (_stat - value <= 0)
+            if (_statValue - value <= 0)
             {
-                _stat = 0;
+                _statValue = 0;
 
-                OnStatDecreased?.Invoke(_stat);
-                OnStatChanged?.Invoke(_stat);
+                OnStatDecreased?.Invoke(_statValue);
+                OnStatChanged?.Invoke(_statValue);
 
                 return;
             }
 
-            _stat -= value;
+            _statValue -= value;
 
-            OnStatDecreased?.Invoke(_stat);
-            OnStatChanged?.Invoke(_stat);
+            OnStatDecreased?.Invoke(_statValue);
+            OnStatChanged?.Invoke(_statValue);
         }
 
         public void ResetToZero()
         {
-            _stat = 0;
+            _statValue = 0;
 
-            OnStatDecreased?.Invoke(_stat);
-            OnStatChanged?.Invoke(_stat);
+            OnStatDecreased?.Invoke(_statValue);
+            OnStatChanged?.Invoke(_statValue);
         }
 
         private void OnValidate()
         {
-            OnStatChanged?.Invoke(_stat);
+            OnStatChanged?.Invoke(_statValue);
         }
     }
 }

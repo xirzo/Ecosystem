@@ -1,8 +1,9 @@
 using UnityEngine;
 using System;
-using Game.StateMachines.Entity;
+using Game.StateMachines.Entities;
 using System.Collections.Generic;
 using Game.Movement;
+using Game.StateMachines.Entities.Herbivore;
 
 namespace Game.Stats
 {
@@ -45,7 +46,7 @@ namespace Game.Stats
 
         private void OnHealthDecreased(float value)
         {
-            if (Value == 0)
+            if (StatValue == 0)
             {
                 Die();
             }

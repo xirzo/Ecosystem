@@ -9,8 +9,8 @@ namespace Game.UI
 
         private void Start()
         {
-            _targetAmount = _stat.Value;
-            _maxAmount = _stat.MaxValue;
+            _targetAmount = _stat.StatValue;
+            _maxAmount = _stat.MaxStatValue;
 
             _stat.OnStatChanged += UpdateAmount;
             UpdateAmount(_targetAmount);

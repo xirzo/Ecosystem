@@ -4,8 +4,8 @@ namespace Game.Stats
 {
     public interface IIncreaser
     {
-        public event Action<Health> OnIncrease;
-        public float Value { get; }
-        public void Increase(Health target);
+        public event Action<Stat> OnIncrease;
+        public float IncreaseValue { get; }
+        public void Increase(Stat target);
     }
 }

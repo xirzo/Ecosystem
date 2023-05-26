@@ -5,10 +5,10 @@ namespace Game.Stats
     [RequireComponent(typeof(Health))]
     public class Satiety : Stat
     {
-        public bool IsHungry => Value < MaxValue;
-
         [SerializeField, Min(0)] private float _satietyDecreaseValue = 0.01f;
         [SerializeField, Min(0)] private float _healthDecreaseValue = 0.01f;
+        [Space]
+        [SerializeField, Min(0)] private float _valueToGetHungry = 75f;
 
         private Health _health;
         private bool _hasHealth;
@@ -33,11 +33,21 @@ namespace Game.Stats
 
             if (_hasHealth == true)
             {
-                if (Value <= 0)
+                if (StatValue <= 0)
                 {
                     _health.Decrease(_healthDecreaseValue);
                 }
             }
+        }
+
+        public bool IsHungry()
+        {
+            if (StatValue <= _valueToGetHungry)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

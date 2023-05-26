@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Interaction
 {
     [RequireComponent(typeof(Orientation))]
-    public class RaycastInteractor : Interactor
+    public class RaycastInteractor : InteractorBehavior
     {
         public LayerMask InteractableLayer => _interactableLayer;
 
@@ -25,7 +25,7 @@ namespace Game.Interaction
             {
                 if ((_interactableLayer & 1 << collider.gameObject.layer) == 1 << collider.gameObject.layer)
                 {
-                    if (collider.attachedRigidbody.TryGetComponent(out Interactable target))
+                    if (collider.attachedRigidbody.TryGetComponent(out InteractableBehavior target))
                     {
                         Interact(target);
                     }

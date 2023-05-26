@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Game.Animation
 {
-    [RequireComponent(typeof(Interactable))]
+    [RequireComponent(typeof(InteractableBehavior))]
     public class InteractableAnimator : AnimatorController
     {
-        private Interactable _interactable;
+        private InteractableBehavior _interactable;
 
         protected override void Awake()
         {

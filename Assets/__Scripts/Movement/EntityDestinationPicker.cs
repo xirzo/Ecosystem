@@ -22,7 +22,7 @@ namespace Game.Movement
             _navMeshData = NavMesh.CalculateTriangulation();
         }
 
-        public Vector3 GetRandomDestinationInDistance()
+        public void SetPointRandomDestinationInDistance()
         {
             Vector3 point = GetRandomDestination();
             float distance = Vector3.Distance(transform.position, point);
@@ -34,7 +34,6 @@ namespace Game.Movement
             }
 
             _point = point;
-            return point;
         }
 
         private Vector3 GetRandomDestination()

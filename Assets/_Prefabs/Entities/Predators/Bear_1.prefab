@@ -1136,9 +1136,11 @@ GameObject:
   - component: {fileID: 5082452956913823716}
   - component: {fileID: 7084288435975902833}
   - component: {fileID: 5051858593657297908}
+  - component: {fileID: 5453641506934124674}
   - component: {fileID: 2933120409702930752}
   - component: {fileID: 6418657115890174328}
   - component: {fileID: 2368050535292307771}
+  - component: {fileID: 3009596281296416986}
   - component: {fileID: 1687233675419977512}
   - component: {fileID: 7831606814431290902}
   - component: {fileID: 3835346763476539021}
@@ -1146,6 +1148,7 @@ GameObject:
   - component: {fileID: 7591754091110510246}
   - component: {fileID: 7202797685380096186}
   - component: {fileID: 685864058747514887}
+  - component: {fileID: 7006013087213556564}
   m_Layer: 8
   m_Name: Bear_1
   m_TagString: Untagged
@@ -1196,7 +1199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed: 1
   _runSpeed: 4
-  _runStoppingDistance: 8
+  _runStoppingDistance: 2
 --- !u!114 &7081855750024653397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1219,7 +1222,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7591754091110510240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 464360c28377d474691254c11b394a22, type: 3}
+  m_Script: {fileID: 11500000, guid: a54115e3aa7706c40adc56e4b59577e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7084288435975902833
@@ -1234,7 +1237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17cf5e0472f656b4aabed072408f64df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxDistanceToPoint: 30
+  _maxDistanceToPoint: 15
 --- !u!114 &5051858593657297908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,7 +1250,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c722bf5f655204ba41563f2ed58023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: bde99cfb995efe04eb9dcc51782013d6, type: 2}
+  _data: {fileID: 11400000, guid: 42812c89694760d488cc9bb0c0e45f67, type: 2}
+--- !u!114 &5453641506934124674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7591754091110510240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801e368906b61894296b157ef2582250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionRadius: 10
+  _interactableLayers:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &2933120409702930752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,8 +1279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6a318df31f6364a9fd981c8a42a380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stat: 100
-  _maxStat: 100
+  _statValue: 100
+  _maxStatValue: 100
 --- !u!114 &6418657115890174328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1274,10 +1293,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a7a06451d0e7541b4684582adad0bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stat: 100
-  _maxStat: 100
-  _satietyDecreaseValue: 0.01
-  _healthDecreaseValue: 0.01
+  _statValue: 100
+  _maxStatValue: 100
+  _satietyDecreaseValue: 0.05
+  _healthDecreaseValue: 0.05
+  _valueToGetHungry: 75
 --- !u!114 &2368050535292307771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,10 +1310,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44221cb4e7796f4fb9e3ff6c57e7311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stat: 100
-  _maxStat: 100
-  _thirstDecreaseValue: 0.01
-  _healthDecreaseValue: 0.01
+  _statValue: 100
+  _maxStatValue: 100
+  _thirstDecreaseValue: 0.075
+  _healthDecreaseValue: 0.05
+  _valueToGetThirsty: 75
+--- !u!114 &3009596281296416986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7591754091110510240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a71e2aec89ed84c9d679c47675c7a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eatingLength: 1
 --- !u!114 &1687233675419977512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1368,7 +1402,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 360
-  m_StoppingDistance: 2
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1406,6 +1440,19 @@ CapsuleCollider:
   m_Height: 2.98
   m_Direction: 1
   m_Center: {x: 0, y: 1.5, z: 0.24}
+--- !u!114 &7006013087213556564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7591754091110510240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a71e2aec89ed84c9d679c47675c7a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eatingLength: 1
 --- !u!1 &7806907380862362531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,7 +1945,7 @@ PrefabInstance:
     - target: {fileID: 3923248115204905239, guid: 7a927071e5f24e64b8218c1437b9b5d5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.75
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3923248115204905239, guid: 7a927071e5f24e64b8218c1437b9b5d5,
         type: 3}
