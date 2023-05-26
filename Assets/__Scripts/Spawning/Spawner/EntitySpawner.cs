@@ -5,12 +5,11 @@ using Game.Entities;
 using Game.Gendering;
 using Game.ObjectPooling;
 using UnityEngine;
-using UnityEngine.Analytics;
 using Gender = Game.Gendering.Gender;
 
 namespace Game.Spawning
 {
-    [RequireComponent(typeof(SpawnerColor))]
+    [RequireComponent(typeof(Colorer))]
     public class EntitySpawner : MonoBehaviour, ISpawner
     {
         public event Action OnSpawned;
@@ -25,7 +24,7 @@ namespace Game.Spawning
         [Space]
         [SerializeField, Min(0)] private int _initialNumber = 1;
 
-        private SpawnerColor _color;
+        private Colorer _color;
         private Gender _previousEntityGender;
 
         private Stack<Entity> _stack;
@@ -47,7 +46,7 @@ namespace Game.Spawning
 
             SetEntityGender(spawned);
 
-            if (spawned.TryGetComponent(out EntityColor color))
+            if (spawned.TryGetComponent(out Colorer color))
             {
                 color.SetColor(_color.Color);
             }

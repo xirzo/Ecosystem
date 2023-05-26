@@ -10,14 +10,14 @@ namespace Game.Movement
 
         [SerializeField, Min(0)] private float _maxDistanceToPoint = 30f;
 
-        private EntityColor _entityColor;
+        private Colorer _colorer;
         private NavMeshTriangulation _navMeshData;
 
         private Vector3 _point;
 
         private void Awake()
         {
-            TryGetComponent(out _entityColor); 
+            TryGetComponent(out _colorer); 
 
             _navMeshData = NavMesh.CalculateTriangulation();
         }
@@ -54,7 +54,7 @@ namespace Game.Movement
         {
             if (Application.isPlaying == true)
             {
-                Gizmos.color = _entityColor.Color;
+                Gizmos.color = _colorer.Color;
                 Gizmos.DrawCube(_point, new Vector3(0.5f, 2, 0.5f));
             }
         }

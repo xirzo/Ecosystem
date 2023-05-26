@@ -1,4 +1,4 @@
-using Game.Eating;
+using Game.Consuming;
 using Game.Interaction;
 using Game.Movement;
 using Game.StateMachines.Entities.Herbivore;
@@ -18,14 +18,14 @@ namespace Game.StateMachines.Entities
         protected EntityDestinationPicker DestinationPicker => _destinationPicker;
         protected Satiety Satiety => _satiety;
         protected Thirst Thirst => _thirst;
-        protected Eater Eater => _eater;
+        protected Consumer Eater => _eater;
         protected EntityInteractor EntityInteractor => _entityInteractor;
 
         private EntityMovement _movement;
         private EntityDestinationPicker _destinationPicker;
         private Satiety _satiety;
         private Thirst _thirst;
-        private Eater _eater;
+        private Consumer _eater;
         private EntityInteractor _entityInteractor;
 
         protected virtual void Awake()

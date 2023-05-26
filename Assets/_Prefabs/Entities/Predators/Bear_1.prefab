@@ -1140,15 +1140,14 @@ GameObject:
   - component: {fileID: 2933120409702930752}
   - component: {fileID: 6418657115890174328}
   - component: {fileID: 2368050535292307771}
-  - component: {fileID: 3009596281296416986}
+  - component: {fileID: 7085836705427676824}
   - component: {fileID: 1687233675419977512}
-  - component: {fileID: 7831606814431290902}
+  - component: {fileID: 7449864554083942415}
   - component: {fileID: 3835346763476539021}
   - component: {fileID: 6694265978100704187}
   - component: {fileID: 7591754091110510246}
   - component: {fileID: 7202797685380096186}
   - component: {fileID: 685864058747514887}
-  - component: {fileID: 7006013087213556564}
   m_Layer: 8
   m_Name: Bear_1
   m_TagString: Untagged
@@ -1315,7 +1314,7 @@ MonoBehaviour:
   _thirstDecreaseValue: 0.075
   _healthDecreaseValue: 0.05
   _valueToGetThirsty: 75
---- !u!114 &3009596281296416986
+--- !u!114 &7085836705427676824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1324,10 +1323,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7591754091110510240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0a71e2aec89ed84c9d679c47675c7a1, type: 3}
+  m_Script: {fileID: 11500000, guid: bf562779280f8634f83629f1c7544f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eatingLength: 1
+  _eatingLength: 3
 --- !u!114 &1687233675419977512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1341,7 +1340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _outline: {fileID: 2312775447888648664}
---- !u!114 &7831606814431290902
+--- !u!114 &7449864554083942415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1350,7 +1349,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7591754091110510240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45577633fe078714fad253aeb2f4ffce, type: 3}
+  m_Script: {fileID: 11500000, guid: fc906618421577640acb1e3b9b19ba8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _renderers:
@@ -1440,19 +1439,6 @@ CapsuleCollider:
   m_Height: 2.98
   m_Direction: 1
   m_Center: {x: 0, y: 1.5, z: 0.24}
---- !u!114 &7006013087213556564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7591754091110510240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0a71e2aec89ed84c9d679c47675c7a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _eatingLength: 1
 --- !u!1 &7806907380862362531
 GameObject:
   m_ObjectHideFlags: 0

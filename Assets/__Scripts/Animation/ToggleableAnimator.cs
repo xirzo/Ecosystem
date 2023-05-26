@@ -4,7 +4,7 @@ using Game.Interfaces;
 namespace Game.Animation
 {
     [RequireComponent(typeof(IToggleable))]
-    public class ToggleableAnimator : AnimatorController
+    public class ToggleableAnimator : AnimatorBehavior
     {
         private IToggleable _toggleable;
 

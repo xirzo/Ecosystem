@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 3469476923566302145}
   - component: {fileID: 2398192214311647462}
   - component: {fileID: 6209494814025716402}
-  - component: {fileID: 7296137211834660330}
+  - component: {fileID: 344755123691673017}
   - component: {fileID: 4649298526915555517}
   - component: {fileID: 2120297114957153825}
   - component: {fileID: 61599893850527466}
@@ -195,7 +195,7 @@ MonoBehaviour:
   _thirstDecreaseValue: 0.01
   _healthDecreaseValue: 0.01
   _valueToGetThirsty: 75
---- !u!114 &7296137211834660330
+--- !u!114 &344755123691673017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1567582185033856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0a71e2aec89ed84c9d679c47675c7a1, type: 3}
+  m_Script: {fileID: 11500000, guid: bf562779280f8634f83629f1c7544f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _eatingLength: 3
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1567582185033856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45577633fe078714fad253aeb2f4ffce, type: 3}
+  m_Script: {fileID: 11500000, guid: fc906618421577640acb1e3b9b19ba8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _renderers:

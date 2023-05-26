@@ -1,4 +1,4 @@
-using Game.Eating;
+using Game.Consuming;
 using Game.Interaction;
 using Game.Interaction.Consume;
 using Game.Movement;
@@ -11,11 +11,11 @@ namespace Game.StateMachines.Entities.Herbivore
         public override string Name => "Herbivore Consuming Food";
 
         private EntityInteractor _interactor;
-        private Eater _eater;
+        private Consumer _eater;
         private EntityMovement _movement;
         private IInteractable _interactable;
 
-        public HerbivoreConsumingFood(EntityStateMachine stateMachine, EntityInteractor interactor, Eater eater, EntityMovement movement) : base(stateMachine)
+        public HerbivoreConsumingFood(EntityStateMachine stateMachine, EntityInteractor interactor, Consumer eater, EntityMovement movement) : base(stateMachine)
         {
             _interactor = interactor;
             _eater = eater;

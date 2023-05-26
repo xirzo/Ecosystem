@@ -1,4 +1,4 @@
-using Game.Eating;
+using Game.Consuming;
 using Game.Movement;
 using Game.Stats;
 using UnityEngine;
@@ -7,8 +7,8 @@ namespace Game.Animation
 {
     [RequireComponent(typeof(IMoveable))]
     [RequireComponent(typeof(Health))]
-    [RequireComponent(typeof(Eater))]
-    public class EntityAnimator : AnimatorController
+    [RequireComponent(typeof(Consumer))]
+    public class EntityAnimator : AnimatorBehavior
     {
         private const string IS_WALKING = "isWalking";
         private const string IS_STANDING = "isStanding";
@@ -19,7 +19,7 @@ namespace Game.Animation
 
         private IMoveable _movement;
         private Health _health;
-        private Eater _eater;
+        private Consumer _eater;
 
         protected override void Awake()
         {

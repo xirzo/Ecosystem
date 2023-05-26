@@ -170,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8741758750154911275}
   - component: {fileID: 8871527501135152961}
-  - component: {fileID: 5429701682967434634}
+  - component: {fileID: 3088987286894292086}
   - component: {fileID: 9128800758148746224}
   m_Layer: 0
   m_Name: Bear_Spawner_1
@@ -213,7 +213,7 @@ MonoBehaviour:
   _container: {fileID: 0}
   _spawnPoint: {fileID: 8072496885423868164}
   _initialNumber: 2
---- !u!114 &5429701682967434634
+--- !u!114 &3088987286894292086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8741758750154911274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e768d7c61260ba84a8ac9a4ccda8db2e, type: 3}
+  m_Script: {fileID: 11500000, guid: 31f7bd7ccf617364fae03a07506f0adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _renderers:

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Utilities
 {
-    public class Fader : AnimatorController
+    public class Fader : AnimatorBehavior
     {
         public bool IsFading { get; private set; }
         private const string FADER_PATH = "Fader";

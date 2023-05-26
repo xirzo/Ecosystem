@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Animation
 {
     [RequireComponent(typeof(InteractableBehavior))]
-    public class InteractableAnimator : AnimatorController
+    public class InteractableAnimator : AnimatorBehavior
     {
         private InteractableBehavior _interactable;
 

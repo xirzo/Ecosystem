@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Game.Animation
 {
     [RequireComponent(typeof(Animator))]
-    public class AnimatorController : MonoBehaviour
+    public class AnimatorBehavior : MonoBehaviour
     {
         public Animator Animator => _animator;
 
