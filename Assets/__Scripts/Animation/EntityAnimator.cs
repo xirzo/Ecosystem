@@ -5,19 +5,21 @@ using UnityEngine;
 
 namespace Game.Animation
 {
-    [RequireComponent(typeof(IMoveable))]
+    [RequireComponent(typeof(IMovement))]
     [RequireComponent(typeof(Health))]
     [RequireComponent(typeof(Consumer))]
     public class EntityAnimator : AnimatorBehavior
     {
         private const string IS_WALKING = "isWalking";
         private const string IS_STANDING = "isStanding";
-        private const string DIED = "Died";
+        private const string DEATH = "Death";
         private const string IS_RUNNING = "isRunning";
         private const string IS_ATTACKING = "isAttacking";
         private const string IS_EATING = "isEating";
 
-        private IMoveable _movement;
+        private readonly int Death = Animator.StringToHash(DEATH);
+
+        private IMovement _movement;
         private Health _health;
         private Consumer _eater;
 
@@ -28,6 +30,8 @@ namespace Game.Animation
             TryGetComponent(out _movement);
             TryGetComponent(out _health);
             TryGetComponent(out _eater);
+
+            
 
             _health.OnDied += OnDied;
         }
@@ -46,7 +50,8 @@ namespace Game.Animation
 
         private void OnDied()
         {
-            Animator.SetTrigger(DIED);
+            //Animator.SetTrigger(DIED);
+            Animator.CrossFade(DEATH, 0, 0);
         }
     }
 }

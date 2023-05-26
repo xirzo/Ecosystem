@@ -4,10 +4,9 @@ using UnityEngine;
 namespace Game.Interaction
 {
     [RequireComponent(typeof(Orientation))]
-    public class RaycastInteractor : InteractorBehavior
+    public abstract class RaycastInteractor : InteractorBehavior, IRaycastInteractor
     {
         public LayerMask InteractableLayer => _interactableLayer;
-
         public float InteractionDistance => _orientation.RaycastDistance;
 
         [SerializeField] private LayerMask _interactableLayer;

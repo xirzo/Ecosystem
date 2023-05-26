@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e62cb4527d1594a9cfa4c63973d0e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactor: {fileID: 5534942984281039014}
+  _interactor: {fileID: 3331002056030169722}
   _orientation: {fileID: 5420854105747498051}
 --- !u!222 &5482419679616025861
 CanvasRenderer:
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 3085920545605581163}
   - component: {fileID: 560667528593555466}
   - component: {fileID: 5420854105747498051}
-  - component: {fileID: 5534942984281039014}
+  - component: {fileID: 3331002056030169722}
   - component: {fileID: 858394200033369138}
   - component: {fileID: 1885584620357936184}
   - component: {fileID: 1123075764420900388}
@@ -348,7 +348,7 @@ MonoBehaviour:
   _gamepadSevsitivityMultiplier: 20
   _upperRotationXClamp: 90
   _lowerRotationXClamp: -90
---- !u!114 &5534942984281039014
+--- !u!114 &3331002056030169722
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3085920545605581162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 363981b027693404ebc40b83e14ceca2, type: 3}
+  m_Script: {fileID: 11500000, guid: a17818c7722a13b488c272b28b64ae4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interactableLayer:

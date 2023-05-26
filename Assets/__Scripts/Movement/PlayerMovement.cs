@@ -3,8 +3,10 @@ using UnityEngine;
 
 namespace Game.Movement
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour, IMovement
     {
+        public bool IsWalking => _velocity.magnitude > 0.01f;
+        public bool IsRunning => _isRunning;
         public bool CanMove { get; set; }
 
         [Header("Movement")]
@@ -19,7 +21,7 @@ namespace Game.Movement
         private PlayerInputs _inputs;
 
         private float _speed;
-        private bool _isSprinting;
+        private bool _isRunning;
 
         private Vector3 _input;
         private Vector3 _currentInput;
@@ -36,14 +38,14 @@ namespace Game.Movement
 
         private void Start()
         {
-            _inputs.Actions.Player.Sprint.started += ctx => StartSprinting();
-            _inputs.Actions.Player.Sprint.canceled += ctx => StopSprinting();
+            _inputs.Actions.Player.Sprint.started += ctx => StartRunning();
+            _inputs.Actions.Player.Sprint.canceled += ctx => StopRunning();
         }
 
         private void OnDestroy()
         {
-            _inputs.Actions.Player.Sprint.started -= ctx => StartSprinting();
-            _inputs.Actions.Player.Sprint.canceled -= ctx => StopSprinting();
+            _inputs.Actions.Player.Sprint.started -= ctx => StartRunning();
+            _inputs.Actions.Player.Sprint.canceled -= ctx => StopRunning();
         }
 
         private void Update()
@@ -67,18 +69,18 @@ namespace Game.Movement
             }
         }
 
-        private void StartSprinting()
+        private void StartRunning()
         {
-            _isSprinting = true;
+            _isRunning = true;
 
             SetSpeed(_sprintingSpeed);
         }
 
-        private void StopSprinting()
+        private void StopRunning()
         {
-            if (_isSprinting)
+            if (_isRunning)
             {
-                _isSprinting = false;
+                _isRunning = false;
 
                 SetSpeed(_movementSpeed);
             }

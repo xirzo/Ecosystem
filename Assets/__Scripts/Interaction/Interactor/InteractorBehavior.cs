@@ -7,7 +7,6 @@ namespace Game.Interaction
     {
         public event Action<IInteractable> OnInteracted;
         public GameObject Self => gameObject;
-
         public void Interact(IInteractable target)
         {
             target.GetInteracted(this);

@@ -1,34 +1,39 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Game.Interaction
 {
-    public class EntityInteractor : InteractorBehavior
+    public abstract class RadiusInteractor : InteractorBehavior, IRadiusInteractor
     {
+        public LayerMask InteractableLayer => _interactableLayer;
         public float InteractionRadius => _interactionRadius;
-        public List<IInteractable> AvailableInteractables { get; private set; }
-        public IInteractable ClosesetAvailableInteractable { get; private set; }
+        public List<IInteractable> InteractablesInRadius => _interactablesInRadius;
+        public IInteractable ClosesetInteractableInRadius => _closesetInteractableInRadius;
+
 
         [SerializeField, Min(0)] private float _interactionRadius = 10f;
         [Space]
-        [SerializeField] private LayerMask _interactableLayers;
+        [SerializeField] private LayerMask _interactableLayer;
+
+        private List<IInteractable> _interactablesInRadius;
+        private IInteractable _closesetInteractableInRadius;
 
         private void Update()
         {
-            ClosesetAvailableInteractable = GetClosestAvailableInteractable();
+            _closesetInteractableInRadius = GetClosestAvailableInteractable();
         }
-        public bool TryGetClosestAvailableInteractable(Type type, out IInteractable interactable)
+
+        public bool TryGetClosestAvailableInteractable(Type interactableType, out IInteractable interactable)
         {
-            if (AvailableInteractables.Count > 0)
+            if (_interactablesInRadius.Count > 0)
             {
                 IInteractable closestInteractable = null;
                 float previousLowestDistance = float.MaxValue;
 
-                foreach (var availableInteractable in AvailableInteractables)
+                foreach (var availableInteractable in _interactablesInRadius)
                 {
-                    if (availableInteractable.Self.TryGetComponent(type, out Component component))
+                    if (availableInteractable.Self.TryGetComponent(interactableType, out Component component))
                     {
                         float distance = Vector3.Distance(transform.position, availableInteractable.Self.transform.position);
 
@@ -53,7 +58,7 @@ namespace Game.Interaction
 
         private bool TryGetAvailableInteractable(out List<IInteractable> availableInteractables)
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, _interactionRadius, _interactableLayers, QueryTriggerInteraction.Ignore);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, _interactionRadius, _interactableLayer, QueryTriggerInteraction.Ignore);
             availableInteractables = new List<IInteractable>(colliders.Length);
 
             if (colliders.Length > 0)
@@ -69,11 +74,11 @@ namespace Game.Interaction
                     }
                 }
 
-                AvailableInteractables = availableInteractables;
+                _interactablesInRadius = availableInteractables;
                 return true;
             }
 
-            AvailableInteractables = availableInteractables;
+            _interactablesInRadius = availableInteractables;
             return false;
         }
 

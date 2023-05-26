@@ -39,7 +39,7 @@ namespace Game.StateMachines.Entities.Herbivore
                 return;
             }
 
-            if (_movement.IsNearToDestination == true)
+            if (_movement.IsCloseToDestination == true)
             {
                 Machine.SetState<HerbivoreIdle>();
                 return;

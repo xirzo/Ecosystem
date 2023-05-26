@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4819606783095600}
   - component: {fileID: 1524932235795068980}
-  - component: {fileID: 6694919994751805448}
   - component: {fileID: 1400070931171753980}
   - component: {fileID: 3187301701833275456}
   - component: {fileID: 8158564019531439580}
   - component: {fileID: 828557498386592445}
   - component: {fileID: 5101562538813642125}
+  - component: {fileID: 7447115859987488288}
   - component: {fileID: 3469476923566302145}
   - component: {fileID: 2398192214311647462}
   - component: {fileID: 6209494814025716402}
@@ -27,7 +27,6 @@ GameObject:
   - component: {fileID: 195227739123809562}
   - component: {fileID: 8476586262168545869}
   - component: {fileID: 634585510822773123}
-  - component: {fileID: 852822205103842638}
   m_Layer: 8
   m_Name: Deer_1
   m_TagString: Untagged
@@ -65,21 +64,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c04bafea1054a49be1651431403bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6694919994751805448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567582185033856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252a637fae365ef49904c8e9f8e38042, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movementSpeed: 1
-  _runSpeed: 4
-  _runStoppingDistance: 2
 --- !u!114 &1400070931171753980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,9 +128,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionRadius: 30
-  _interactableLayers:
+  _interactableLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &7447115859987488288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567582185033856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb44d21290c5db4181c482ae67f065e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementSpeed: 1
+  _runSpeed: 4
+  _runStoppingDistance: 3
 --- !u!114 &3469476923566302145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,19 +318,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.9468846, z: 2.1927636}
   m_Center: {x: 0, y: 0.9833033, z: 0.14931646}
---- !u!114 &852822205103842638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567582185033856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0a71e2aec89ed84c9d679c47675c7a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _eatingLength: 1
 --- !u!1 &3366735089155291498
 GameObject:
   m_ObjectHideFlags: 0

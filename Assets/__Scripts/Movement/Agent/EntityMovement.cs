@@ -1,13 +1,12 @@
-using Game.Coloring;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Game.Movement
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    public class EntityMovement : MonoBehaviour, IMoveable
+    public class EntityMovement : MonoBehaviour, IAgentMovement
     {
-        public bool IsNearToDestination => _isNearToDestination;
+        public bool IsCloseToDestination => _isCloseToDestination;
         public float DistanceToDestination => Vector3.Distance(transform.position, _agent.destination);
         public float StoppingDistance => _agent.stoppingDistance;
         public float RunStoppingDistance => _runStoppingDistance;
@@ -19,13 +18,12 @@ namespace Game.Movement
         [Space]
         [SerializeField, Min(0)] private float _runStoppingDistance = 8f;
 
-
         private NavMeshAgent _agent;
 
         private float _speed;
 
         private bool _isRunning;
-        private bool _isNearToDestination;
+        private bool _isCloseToDestination;
 
 
         private void Awake()
@@ -39,19 +37,19 @@ namespace Game.Movement
         {
             if (DistanceToDestination > _agent.stoppingDistance)
             {
-                _isNearToDestination = false;
+                _isCloseToDestination = false;
 
                 if (DistanceToDestination > RunStoppingDistance)
                 {
-                    Run();
+                    StartRunning();
                     return;
                 }
 
-                Unrun();
+                StopRunning();
                 return;
             }
 
-            _isNearToDestination = true;
+            _isCloseToDestination = true;
         }
 
         private void OnDisable()
@@ -69,7 +67,7 @@ namespace Game.Movement
             _agent.ResetPath();
         }
 
-        public void Run()
+        private void StartRunning()
         {
             if (_isRunning == false)
             {
@@ -78,7 +76,7 @@ namespace Game.Movement
             }
         }
 
-        public void Unrun()
+        private void StopRunning()
         {
             if (_isRunning == true)
             {
