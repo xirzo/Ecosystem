@@ -17,7 +17,7 @@ namespace Game.StateMachines.Entities.Herbivore
             AddState(new HerbivoreFoundWater(this, EntityInteractor, Movement));
             AddState(new HerbivoreSearchingForFood(this, EntityInteractor, Movement, DestinationPicker));
             AddState(new HerbivoreSearchingForWater(this, EntityInteractor, Movement, DestinationPicker));
-            AddState(new HerbivoreConsumingFood(this, EntityInteractor, Eater, Movement));
+            AddState(new HerbivoreConsuming(this, EntityInteractor, Eater, Movement));
             AddState(new HerbivorePatroling(this, Movement, DestinationPicker));
         }
 

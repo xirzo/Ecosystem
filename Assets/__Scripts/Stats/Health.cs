@@ -1,9 +1,7 @@
-using UnityEngine;
 using System;
-using Game.StateMachines.Entities;
 using System.Collections.Generic;
 using Game.Movement;
-using Game.StateMachines.Entities.Herbivore;
+using UnityEngine;
 
 namespace Game.Stats
 {
@@ -14,12 +12,9 @@ namespace Game.Stats
         public bool IsDead { get; private set; }
 
         private List<MonoBehaviour> _componentsToTurnOffWhenDied = new List<MonoBehaviour>();
-        private EntityStateMachine _stateMachine;
 
         private void Awake()
         {
-            TryGetComponent(out _stateMachine);
-
             GetComponentsToTurnOff();
 
             OnStatDecreased += OnHealthDecreased;
@@ -38,7 +33,6 @@ namespace Game.Stats
                 component.enabled = false;
             }
 
-            _stateMachine.SetState<EntityDead>();
             IsDead = true;
 
             OnDied?.Invoke();

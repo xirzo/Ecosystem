@@ -20,13 +20,11 @@ GameObject:
   - component: {fileID: 2398192214311647462}
   - component: {fileID: 6209494814025716402}
   - component: {fileID: 344755123691673017}
-  - component: {fileID: 4649298526915555517}
   - component: {fileID: 2120297114957153825}
   - component: {fileID: 61599893850527466}
   - component: {fileID: 95511349741874662}
   - component: {fileID: 195227739123809562}
   - component: {fileID: 8476586262168545869}
-  - component: {fileID: 634585510822773123}
   m_Layer: 8
   m_Name: Deer_1
   m_TagString: Untagged
@@ -115,6 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 4548bdbc783759040929a9725f4ac52a, type: 2}
+  _collidersToChangeLayer:
+  - {fileID: 8206844225585987886}
 --- !u!114 &5101562538813642125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed: 1
   _runSpeed: 4
-  _runStoppingDistance: 3
+  _runStoppingDistance: 2
 --- !u!114 &3469476923566302145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,9 +174,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _statValue: 100
   _maxStatValue: 100
-  _satietyDecreaseValue: 0.01
-  _healthDecreaseValue: 0.01
-  _valueToGetHungry: 75
+  _satietyDecreaseValue: 0.025
+  _healthDecreaseValue: 0.05
+  _valueToGetHungry: 60
 --- !u!114 &6209494814025716402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,9 +191,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _statValue: 100
   _maxStatValue: 100
-  _thirstDecreaseValue: 0.01
-  _healthDecreaseValue: 0.01
-  _valueToGetThirsty: 75
+  _thirstDecreaseValue: 0.05
+  _healthDecreaseValue: 0.05
+  _valueToGetThirsty: 50
 --- !u!114 &344755123691673017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,19 +207,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eatingLength: 3
---- !u!114 &4649298526915555517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567582185033856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08de0e8939a615b44872ae57bad6b2d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _outline: {fileID: 8698542055350787348}
 --- !u!114 &2120297114957153825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,19 +292,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
---- !u!65 &634585510822773123
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567582185033856}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.9468846, z: 2.1927636}
-  m_Center: {x: 0, y: 0.9833033, z: 0.14931646}
 --- !u!1 &3366735089155291498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,6 +1341,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8447245532990557818}
+  - component: {fileID: 8206844225585987886}
+  - component: {fileID: 8762742093164263750}
   m_Layer: 8
   m_Name: Root_M
   m_TagString: Untagged
@@ -1393,6 +1369,32 @@ Transform:
   m_Father: {fileID: 8447245532990557752}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8206844225585987886
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8447245532991050330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1299243, y: 2.1416323, z: 0.54950416}
+  m_Center: {x: -0.59762156, y: 0.09737378, z: 6.0572237e-16}
+--- !u!114 &8762742093164263750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8447245532991050330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08de0e8939a615b44872ae57bad6b2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outline: {fileID: 8698542055350787348}
 --- !u!1 &8447245532991050332
 GameObject:
   m_ObjectHideFlags: 0

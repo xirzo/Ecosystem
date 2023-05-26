@@ -2,20 +2,19 @@ using Game.Consuming;
 using Game.Interaction;
 using Game.Interaction.Consume;
 using Game.Movement;
-using UnityEngine;
 
 namespace Game.StateMachines.Entities.Herbivore
 {
-    public class HerbivoreConsumingFood : EntityState
+    public class HerbivoreConsuming : EntityState
     {
-        public override string Name => "Herbivore Consuming Food";
+        public override string Name => "Herbivore Consuming";
 
         private EntityInteractor _interactor;
         private Consumer _eater;
         private EntityMovement _movement;
         private IInteractable _interactable;
 
-        public HerbivoreConsumingFood(EntityStateMachine stateMachine, EntityInteractor interactor, Consumer eater, EntityMovement movement) : base(stateMachine)
+        public HerbivoreConsuming(EntityStateMachine stateMachine, EntityInteractor interactor, Consumer eater, EntityMovement movement) : base(stateMachine)
         {
             _interactor = interactor;
             _eater = eater;
