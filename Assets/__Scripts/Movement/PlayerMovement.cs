@@ -17,7 +17,6 @@ namespace Game.Movement
         [Header("Input")]
         [SerializeField, Range(0, 1)] private float _smoothInputSpeed = 0.05f;
 
-
         private PlayerInputs _inputs;
 
         private float _speed;

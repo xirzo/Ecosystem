@@ -20,7 +20,7 @@ namespace Game.StateMachines.Entities
         protected Health Health => _health;
         protected Satiety Satiety => _satiety;
         protected Thirst Thirst => _thirst;
-        protected Consumer Eater => _eater;
+        protected ConsumerBehaviour Eater => _eater;
         protected EntityInteractor EntityInteractor => _entityInteractor;
 
         private EntityMovement _movement;
@@ -28,7 +28,7 @@ namespace Game.StateMachines.Entities
         private Health _health;
         private Satiety _satiety;
         private Thirst _thirst;
-        private Consumer _eater;
+        private ConsumerBehaviour _eater;
         private EntityInteractor _entityInteractor;
 
         protected virtual void Awake()

@@ -15,7 +15,7 @@ namespace Game.UI
             {
                 if ((_interactor.InteractableLayer & 1 << collider.gameObject.layer) == 1 << collider.gameObject.layer)
                 {
-                    if (collider.attachedRigidbody.gameObject.TryGetComponent(out InteractableBehavior interactable))
+                    if (collider.attachedRigidbody.gameObject.TryGetComponent(out InteractableBehaviour interactable))
                     {
                         SetText(interactable.Data.Name);
                         return;

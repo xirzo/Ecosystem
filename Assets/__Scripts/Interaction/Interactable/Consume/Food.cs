@@ -1,13 +1,15 @@
 using System.Collections;
 using UnityEngine;
 using Game.Stats;
-using static UnityEditor.Progress;
+using Game.Consuming;
 
 namespace Game.Interaction.Consume
 {
     public class Food : Consumable
     {
         [SerializeField, Min(0)] private float _disappearSpeed = 3f;
+
+        private IConsumer _consumer;
 
         protected override void GetConsumed(IInteractor interactor)
         {
@@ -16,7 +18,20 @@ namespace Game.Interaction.Consume
                 Increase(satiety);
             }
 
-            StartCoroutine(DisappearCoroutine());
+            if (interactor.Self.TryGetComponent(out IConsumer consumer))
+            {
+                _consumer = consumer;
+                _consumer.OnEaten += () => StartCoroutine(DisappearCoroutine());
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (_consumer != null)
+            {
+                _consumer.OnEaten -= () => StartCoroutine(DisappearCoroutine());
+                _consumer = null;
+            }
         }
 
         private IEnumerator DisappearCoroutine()

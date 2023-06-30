@@ -10,11 +10,11 @@ namespace Game.StateMachines.Entities.Herbivore
         public override string Name => "Herbivore Consuming";
 
         private EntityInteractor _interactor;
-        private Consumer _eater;
+        private ConsumerBehaviour _eater;
         private EntityMovement _movement;
         private IInteractable _interactable;
 
-        public HerbivoreConsuming(EntityStateMachine stateMachine, EntityInteractor interactor, Consumer eater, EntityMovement movement) : base(stateMachine)
+        public HerbivoreConsuming(EntityStateMachine stateMachine, EntityInteractor interactor, ConsumerBehaviour eater, EntityMovement movement) : base(stateMachine)
         {
             _interactor = interactor;
             _eater = eater;

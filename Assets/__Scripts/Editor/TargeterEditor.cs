@@ -10,7 +10,7 @@ namespace Game.Editors
         private void OnSceneGUI()
         {
             Targeter targeter = (Targeter)target;
-            Handles.color = Color.white;
+            Handles.color = Color.red;
             Handles.DrawWireArc(targeter.transform.position, Vector3.up, Vector3.forward, 360, targeter.TargetingRange);
 
             if (targeter.Target != null)

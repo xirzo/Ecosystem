@@ -13,7 +13,6 @@ namespace Game.Targeting
         public LayerMask TargetLayer => _targetLayer;
         public LayerMask ObstacleLayer => _obstacleLayer;
         public float DistanceToTarget => _distanceToTarget;
-
         public bool CanSeeTarget => _canSeeTarget;
 
         [SerializeField, Range(0, 300)] private float _targetingRange = 10f;

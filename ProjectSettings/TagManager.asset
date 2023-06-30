@@ -12,8 +12,8 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - Entity
+  - Entities/Predator
+  - Entities/Herbivore
   - Interactable
   - Obstacle
   - 

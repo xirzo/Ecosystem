@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Game.Interaction;
+using Game.Interaction.Consume;
 using Game.Movement;
+using Game.ScriptableObjects;
 using UnityEngine;
 
 namespace Game.Stats
@@ -11,11 +14,17 @@ namespace Game.Stats
 
         public bool IsDead { get; private set; }
 
+        [SerializeField] private ConsumableData _deathConsumableData;
+
         private List<MonoBehaviour> _componentsToTurnOffWhenDied = new List<MonoBehaviour>();
+
+        private EntityInteractable _entityInteractable;
 
         private void Awake()
         {
             GetComponentsToTurnOff();
+
+            TryGetComponent(out _entityInteractable); 
 
             OnStatDecreased += OnHealthDecreased;
         }
@@ -34,6 +43,10 @@ namespace Game.Stats
             }
 
             IsDead = true;
+
+            Destroy(_entityInteractable);
+            Food food = gameObject.AddComponent<Food>();
+            food.SetData(_deathConsumableData);
 
             OnDied?.Invoke();
         }

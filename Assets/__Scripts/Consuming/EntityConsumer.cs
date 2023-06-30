@@ -1,4 +1,3 @@
-using System.Collections;
 using Game.Interaction;
 using Game.Interaction.Consume;
 using UnityEngine;
@@ -6,7 +5,7 @@ using UnityEngine;
 namespace Game.Consuming
 {
     [RequireComponent(typeof(IInteractor))]
-    public class EntityConsumer : Consumer
+    public class EntityConsumer : ConsumerBehaviour
     {
         private IInteractor _interactor;
 

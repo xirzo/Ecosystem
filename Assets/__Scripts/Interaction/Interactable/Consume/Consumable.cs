@@ -1,12 +1,10 @@
 using System;
-using Game.Interaction;
 using Game.ScriptableObjects;
 using Game.Stats;
-using UnityEngine;
 
 namespace Game.Interaction.Consume
 {
-    public abstract class Consumable : InteractableBehavior, IIncreaser
+    public abstract class Consumable : InteractableBehaviour, IIncreaser
     {
         public event Action<Stat> OnIncrease;
         public new ConsumableData Data => (ConsumableData)base.Data;
@@ -24,6 +22,7 @@ namespace Game.Interaction.Consume
             target.Increase(Data.StatIncreaseValue);
             OnIncrease?.Invoke(target);
         }
+
         protected abstract void GetConsumed(IInteractor interactor);
     }
 }

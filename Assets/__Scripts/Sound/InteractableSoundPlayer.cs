@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Sound
 {
-    [RequireComponent(typeof(InteractableBehavior))]
+    [RequireComponent(typeof(InteractableBehaviour))]
     public class InteractableSoundPlayer : SoundPlayer
     {
         [SerializeField] private AudioClip _interactSound;
@@ -11,7 +11,7 @@ namespace Game.Sound
         [SerializeField, Min(0)] private float _delay = 0f;
         [SerializeField] private bool _loop;
 
-        private InteractableBehavior _interactable;
+        private InteractableBehaviour _interactable;
 
         protected override void Awake()
         {

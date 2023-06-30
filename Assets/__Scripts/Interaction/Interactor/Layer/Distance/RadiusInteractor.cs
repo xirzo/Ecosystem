@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Interaction
 {
-    public abstract class RadiusInteractor : InteractorBehavior, IRadiusInteractor
+    public abstract class RadiusInteractor : InteractorBehaviour, IRadiusInteractor
     {
         public LayerMask InteractableLayer => _interactableLayer;
         public float InteractionRadius => _interactionRadius;

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Game.Interaction
 {
     [RequireComponent(typeof(Health))]
-    public class EntityInteractable : InteractableBehavior
+    public class EntityInteractable : InteractableBehaviour
     {
         public new EntityInteractableData Data => (EntityInteractableData)base.Data;
 

@@ -1,6 +1,7 @@
 using Game.Interaction;
 using Game.Interaction.Consume;
 using Game.Movement;
+using Game.Targeting;
 using UnityEngine;
 
 namespace Game.StateMachines.Entities.Predator
@@ -12,12 +13,14 @@ namespace Game.StateMachines.Entities.Predator
         private EntityInteractor _interactor;
         private EntityMovement _movement;
         private EntityDestinationPicker _destinationPicker;
+        private Targeter _targeter;
 
-        public PredatorSearchingForFood(EntityStateMachine stateMachine, EntityInteractor interactor, EntityMovement movement, EntityDestinationPicker destinationPicker) : base(stateMachine)
+        public PredatorSearchingForFood(EntityStateMachine stateMachine, EntityInteractor interactor, EntityMovement movement, EntityDestinationPicker destinationPicker, Targeter targeter) : base(stateMachine)
         {
             _interactor = interactor;
             _movement = movement;
             _destinationPicker = destinationPicker;
+            _targeter = targeter;
         }
 
         public override void Enter()
@@ -39,6 +42,11 @@ namespace Game.StateMachines.Entities.Predator
                 return;
             }
 
+            if (_targeter.CanSeeTarget == true)
+            {
+                Machine.SetState<PredatorFoundTarget>();
+                return;
+            }
 
             if (_movement.IsCloseToDestination == true)
             {

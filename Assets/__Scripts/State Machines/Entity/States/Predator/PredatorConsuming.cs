@@ -2,6 +2,7 @@ using Game.Consuming;
 using Game.Interaction;
 using Game.Interaction.Consume;
 using Game.Movement;
+using UnityEngine;
 
 namespace Game.StateMachines.Entities.Predator
 {
@@ -10,11 +11,11 @@ namespace Game.StateMachines.Entities.Predator
         public override string Name => "Predator Consuming";
 
         private EntityInteractor _interactor;
-        private Consumer _eater;
+        private ConsumerBehaviour _eater;
         private EntityMovement _movement;
         private IInteractable _interactable;
 
-        public PredatorConsuming(EntityStateMachine stateMachine, EntityInteractor interactor, Consumer eater, EntityMovement movement) : base(stateMachine)
+        public PredatorConsuming(EntityStateMachine stateMachine, EntityInteractor interactor, ConsumerBehaviour eater, EntityMovement movement) : base(stateMachine)
         {
             _interactor = interactor;
             _eater = eater;

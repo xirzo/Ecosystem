@@ -33,7 +33,7 @@ namespace Game.UI
         {
             if (_camera.TryToGetForwardCollider(out Collider collider) && collider.attachedRigidbody != null)
             {
-                if (collider.attachedRigidbody.TryGetComponent(out InteractableBehavior target))
+                if (collider.attachedRigidbody.TryGetComponent(out InteractableBehaviour target))
                 {
                     if (transform.localScale != transform.localScale * _sizeMultpilier)
                     {

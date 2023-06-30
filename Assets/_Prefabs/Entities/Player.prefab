@@ -217,7 +217,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1815
+    m_Bits: 1943
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -341,7 +341,7 @@ MonoBehaviour:
   _raycastDistance: 2
   _raycastLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
   _forwardPoint: {fileID: 7506050293856178386}
   _sensitivityX: 0.05
   _sensitivityY: 0.05
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactableLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
 --- !u!114 &858394200033369138
 MonoBehaviour:
   m_ObjectHideFlags: 0
